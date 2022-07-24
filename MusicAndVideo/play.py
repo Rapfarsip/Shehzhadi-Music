@@ -82,7 +82,7 @@ async def ytdl(link):
         return 0, stderr.decode()
 
 
-@Client.on_message(filters.command(["play"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["پخش"], prefixes=f"{HNDLR}"))
 async def play(client, m: Message):
     replied = m.reply_to_message
     chat_id = m.chat.id
@@ -90,7 +90,7 @@ async def play(client, m: Message):
     if replied:
         if replied.audio or replied.voice:
             await m.delete()
-            huehue = await replied.reply("**🔍 ᴘʀᴏᴄᴇssɪɴɢ**")
+            huehue = await replied.reply(".")
             dl = await replied.download()
             link = replied.link
             if replied.audio:
